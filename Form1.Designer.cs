@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.enemyOne = new System.Windows.Forms.PictureBox();
             this.enemyTwo = new System.Windows.Forms.PictureBox();
             this.enemyThree = new System.Windows.Forms.PictureBox();
@@ -36,6 +37,7 @@
             this.player = new System.Windows.Forms.PictureBox();
             this.txtScore = new System.Windows.Forms.Label();
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
+            this.gameOverText = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.enemyOne)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.enemyTwo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.enemyThree)).BeginInit();
@@ -45,6 +47,7 @@
             // 
             // enemyOne
             // 
+            this.enemyOne.BackColor = System.Drawing.Color.Transparent;
             this.enemyOne.Image = global::AirStrike.Properties.Resources.enemy;
             this.enemyOne.Location = new System.Drawing.Point(35, 33);
             this.enemyOne.Name = "enemyOne";
@@ -55,6 +58,7 @@
             // 
             // enemyTwo
             // 
+            this.enemyTwo.BackColor = System.Drawing.Color.Transparent;
             this.enemyTwo.Image = global::AirStrike.Properties.Resources.enemy;
             this.enemyTwo.Location = new System.Drawing.Point(243, 33);
             this.enemyTwo.Name = "enemyTwo";
@@ -65,6 +69,7 @@
             // 
             // enemyThree
             // 
+            this.enemyThree.BackColor = System.Drawing.Color.Transparent;
             this.enemyThree.Image = global::AirStrike.Properties.Resources.enemy;
             this.enemyThree.Location = new System.Drawing.Point(436, 33);
             this.enemyThree.Name = "enemyThree";
@@ -85,6 +90,7 @@
             // 
             // player
             // 
+            this.player.BackColor = System.Drawing.Color.Transparent;
             this.player.Image = global::AirStrike.Properties.Resources.player;
             this.player.Location = new System.Drawing.Point(243, 643);
             this.player.Name = "player";
@@ -95,12 +101,13 @@
             // 
             // txtScore
             // 
+            this.txtScore.BackColor = System.Drawing.Color.Transparent;
             this.txtScore.Font = new System.Drawing.Font("Leelawadee", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtScore.Location = new System.Drawing.Point(12, 202);
+            this.txtScore.Location = new System.Drawing.Point(498, 9);
             this.txtScore.Name = "txtScore";
-            this.txtScore.Size = new System.Drawing.Size(558, 200);
+            this.txtScore.Size = new System.Drawing.Size(182, 47);
             this.txtScore.TabIndex = 1;
-            this.txtScore.Text = "0";
+            this.txtScore.Text = "Score: 0";
             this.txtScore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // gameTimer
@@ -108,20 +115,31 @@
             this.gameTimer.Interval = 20;
             this.gameTimer.Tick += new System.EventHandler(this.mainGameTimerEvent);
             // 
+            // gameOverText
+            // 
+            this.gameOverText.BackColor = System.Drawing.Color.Transparent;
+            this.gameOverText.Font = new System.Drawing.Font("Leelawadee", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gameOverText.Location = new System.Drawing.Point(12, 244);
+            this.gameOverText.Name = "gameOverText";
+            this.gameOverText.Size = new System.Drawing.Size(668, 216);
+            this.gameOverText.TabIndex = 2;
+            this.gameOverText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(582, 753);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(692, 753);
+            this.Controls.Add(this.txtScore);
             this.Controls.Add(this.player);
             this.Controls.Add(this.bullet);
             this.Controls.Add(this.enemyThree);
             this.Controls.Add(this.enemyTwo);
             this.Controls.Add(this.enemyOne);
-            this.Controls.Add(this.txtScore);
+            this.Controls.Add(this.gameOverText);
             this.Name = "Form1";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "Form1";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keyisdown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.keyisup);
@@ -144,6 +162,7 @@
         private System.Windows.Forms.PictureBox player;
         private System.Windows.Forms.Label txtScore;
         private System.Windows.Forms.Timer gameTimer;
+        private System.Windows.Forms.Label gameOverText;
     }
 }
 

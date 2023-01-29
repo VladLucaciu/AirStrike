@@ -31,7 +31,7 @@ namespace AirStrike
         private void mainGameTimerEvent(object sender, EventArgs e)
         {
 
-            txtScore.Text = score.ToString();
+            txtScore.Text = "Score: " + score;
 
 
             enemyOne.Top += enemySpeed;
@@ -55,7 +55,7 @@ namespace AirStrike
                 player.Left -= playerSpeed;
 
             }
-            if(goRight == true && player.Left < 600)
+            if(goRight == true && player.Left < this.Width - player.Width)
             {
                 player.Left += playerSpeed;
                 // end of the orientation inputs
@@ -82,21 +82,21 @@ namespace AirStrike
             {
                 score += 1;
                 enemyOne.Top = -450;
-                enemyOne.Left = rnd.Next(20, 600);
+                enemyOne.Left = rnd.Next(20, this.Width - enemyOne.Width);
                 shooting = false;
             }
             if(bullet.Bounds.IntersectsWith(enemyTwo.Bounds))
             {
                 score += 1;
                 enemyTwo.Top = -650;
-                enemyTwo.Left = rnd.Next(20, 600);
+                enemyTwo.Left = rnd.Next(20, this.Width - enemyTwo.Width);
                 shooting = false;
             }
             if(bullet.Bounds.IntersectsWith(enemyThree.Bounds))
             {
                 score += 1;
                 enemyThree.Top = -750;
-                enemyThree.Left = rnd.Next(20, 600);
+                enemyThree.Left = rnd.Next(20, this.Width - enemyThree.Width);
                 shooting = false;
             }
 
@@ -155,30 +155,28 @@ namespace AirStrike
             gameTimer.Start();
             enemySpeed = 3;
 
-            enemyOne.Left = rnd.Next(20, 600);
-            enemyTwo.Left = rnd.Next(20, 600);
-            enemyThree.Left = rnd.Next(20, 600);
+            enemyOne.Left = rnd.Next(20, this.Width - enemyOne.Width);
+            enemyTwo.Left = rnd.Next(20, this.Width - enemyTwo.Width);
+            enemyThree.Left = rnd.Next(20, this.Width - enemyThree.Width);
 
-            enemyOne.Top = rnd.Next(0, 600) * -1;
-            enemyTwo.Top = rnd.Next(0, 500) * -1;
-            enemyThree.Top = rnd.Next(0, 900) * -1;
+            enemyOne.Top = rnd.Next(0, 300) * -1;
+            enemyTwo.Top = rnd.Next(300, 600) * -1;
+            enemyThree.Top = rnd.Next(600, 900) * -1;
 
             score = 0;
             bulletSpeed = 0;
             bullet.Left = - 300;
             shooting = false;
 
-            txtScore.Text = score.ToString();
-
-
-
+            txtScore.Text = "Score: " + score;
+            gameOverText.Text = string.Empty;
         }
         
         private void gameOver()
         {
             isGameOver = true;
             gameTimer.Stop();
-            txtScore.Text += Environment.NewLine + "Game Over" + Environment.NewLine + "Press Enter to try again";
+            gameOverText.Text = "Game Over" + Environment.NewLine + "Press Enter to try again";
 
         }
 
